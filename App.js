@@ -5,6 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserDetails from './screens/UserDetails';
 import AddUser from './screens/AddUser';
 import Toast from 'react-native-toast-message';
+if (__DEV__) {
+  require("./ReactotronConfig");
+}
 
 export default function App() {
 

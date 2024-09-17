@@ -56,6 +56,14 @@ export default function AddUser({ route, navigation }) {
                 keyboardType="email-address"
                 selectionColor="black"
             />
+            <Text style={userInputStyle.label}>Street</Text>
+            <TextInput
+                style={userInputStyle.input}
+                onChangeText={text => handleOnChange(text, 'address.street')}
+                placeholder="Enter street"
+                value={inputs.address.street}
+                selectionColor="black"
+            />
             <TouchableOpacity style={userInputStyle.button} onPress={submitHandler} ><Text style={userInputStyle.text}>Submit</Text></TouchableOpacity>
         </SafeAreaView>
 
