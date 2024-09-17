@@ -4,12 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserDetails from './screens/UserDetails';
 import AddUser from './screens/AddUser';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
 
   const Stack = createNativeStackNavigator();
 
   return (
+    <>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -29,5 +31,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    <Toast />
+    </>
   );
 }
