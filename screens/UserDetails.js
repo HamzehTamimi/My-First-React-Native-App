@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { Text, SafeAreaView, Image } from 'react-native';
+import { Text, SafeAreaView, Image, View, ScrollView } from 'react-native';
 import userDetailsStyle from '../styles/userDetailsStyle';
 
 export default function UserDetails({ route }) {
@@ -16,13 +16,41 @@ export default function UserDetails({ route }) {
 
   return (
     <SafeAreaView style={userDetailsStyle.container}>
-      <Image style={userDetailsStyle.image} source={{ uri: `https://avatar.iran.liara.run/public/${userId}` }}></Image>
-      <Text style={userDetailsStyle.header}>{userData.name}</Text>
-      <Text style={userDetailsStyle.header}>{userData.address.street}</Text>
-      <Text style={userDetailsStyle.header}>{userData.address.city}</Text>
-      <Text style={userDetailsStyle.header}>{userData.address.zipcode}</Text>
-      <Text style={userDetailsStyle.header}>{userData.phone}</Text>
-      <Text style={userDetailsStyle.header}>{userData.website}</Text>
+      <ScrollView>
+        <Image style={userDetailsStyle.image} source={{ uri: `https://avatar.iran.liara.run/public/${userId}` }}></Image>
+        <Text style={userDetailsStyle.label}>Name</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.name}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>Username</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.username}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>Email</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.email}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>Street</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.address.street}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>City</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.address.city}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>ZIP Code</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.address.zipcode}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>Phone</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.phone}</Text>
+        </View>
+        <Text style={userDetailsStyle.label}>Website</Text>
+        <View style={userDetailsStyle.card}>
+          <Text style={userDetailsStyle.text}>{userData.website}</Text>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

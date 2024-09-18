@@ -16,7 +16,7 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ gestureEnabled: true, navigationBarColor:'#F8F8F8' }}>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
@@ -25,7 +25,7 @@ export default function App() {
           <Stack.Screen
             name="UserDetails"
             component={UserDetails}
-            options={{ title: 'About User', headerShadowVisible: false, headerStyle: {backgroundColor: "#F8F8F8"}  }}
+            options={{ title: 'About User', headerShadowVisible: false, headerStyle: {backgroundColor: "#F8F8F8"}, headerTitleAlign: 'center',  }}
           />
           <Stack.Screen
             name="AddUser"
