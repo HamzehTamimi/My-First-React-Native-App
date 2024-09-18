@@ -25,6 +25,7 @@ export default function HomeScreen({ route, navigation }) {
   const renderItem = ({ item }) => {
     return (
       <View style={cardStyle.card}>
+        <Text style={{ fontSize: 35, textAlign: "center", paddingBottom: 5 }}>{item.id}</Text>   
         <Text style={{ fontSize: 25, textAlign: "center", paddingBottom: 15 }}>{item.name}</Text>     
         <TouchableOpacity
           onPress={() => navigation.navigate(`UserDetails`, {

@@ -15,10 +15,11 @@ const userInputStyle = StyleSheet.create({
     height: 50,
     paddingLeft: 10,
     marginHorizontal: 10,
+    backgroundColor: 'white'
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F8F8F8',
     //alignItems: 'center',,
   },
   label: {
@@ -51,6 +52,7 @@ const userInputStyle = StyleSheet.create({
     borderTopLeftRadius: 8,
     borderColor: "lightgrey",
     borderWidth: 2,
+    backgroundColor: 'white'
   },
   inputsMiddle: {
     fontSize: 18,
@@ -63,6 +65,7 @@ const userInputStyle = StyleSheet.create({
     borderRightWidth: 2,
     borderTopWidth: 1,
     borderBottomWidth: 1,
+    backgroundColor: 'white'
   },
   inputsBottom: {
     fontSize: 18,
@@ -79,6 +82,7 @@ const userInputStyle = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomRightRadius: 8,
     borderBottomLeftRadius: 8,
+    backgroundColor: 'white'
   }
 });
 

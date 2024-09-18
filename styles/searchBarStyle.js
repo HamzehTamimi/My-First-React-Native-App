@@ -15,7 +15,8 @@ const searchBarStyle = StyleSheet.create({
     height: 50,
     marginHorizontal: 16,
     marginTop: 8,
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: 'white'
   }
 });
 

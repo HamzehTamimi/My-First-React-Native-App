@@ -20,17 +20,17 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: 'Users', headerShadowVisible: false }}
+            options={{ title: 'Users', headerShadowVisible: false, headerStyle: {backgroundColor: "#F8F8F8"} }}
           />
           <Stack.Screen
             name="UserDetails"
             component={UserDetails}
-            options={{ title: 'About User', headerShadowVisible: false }}
+            options={{ title: 'About User', headerShadowVisible: false, headerStyle: {backgroundColor: "#F8F8F8"}  }}
           />
           <Stack.Screen
             name="AddUser"
             component={AddUser}
-            options={{ title: 'New User', headerShadowVisible: false }}
+            options={{ title: 'New User', headerShadowVisible: false, headerStyle: {backgroundColor: "#F8F8F8"}  }}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -8,7 +8,7 @@ const userDetailsStyle = StyleSheet.create({
   container:{
     alignItems: "center",
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F8F8F8',
     paddingTop: 16
   },
   header: {
