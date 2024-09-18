@@ -42,11 +42,33 @@ const userInputStyle = StyleSheet.create({
     color: "white",
     fontSize: 18,
   },
-  flexy: {
-    flexDirection: "row", 
-    flexWrap: "wrap" 
+  inputsTop: {
+    fontSize: 18,
+    height: 50,
+    marginHorizontal: 10,
+    paddingLeft: 10,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+    borderColor: "lightgrey",
+    borderWidth: 2,
   },
-  inputFlex: {
+  inputsMiddle: {
+    fontSize: 18,
+    height: 50,
+    marginHorizontal: 10,
+    paddingLeft: 10,
+    borderColor: "lightgrey",
+    borderWidth: 2,
+    borderLeftWidth: 2,
+    borderRightWidth: 2,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+  },
+  inputsBottom: {
+    fontSize: 18,
+    height: 50,
+    marginHorizontal: 10,
+    paddingLeft: 10,
     borderLeftWidth: 2,
     borderRightWidth: 2,
     borderTopWidth: 2,
@@ -55,13 +77,9 @@ const userInputStyle = StyleSheet.create({
     borderRightColor: "lightgrey",
     borderTopColor: "lightgrey",
     borderBottomColor: "black",
-    borderRadius: 8,
-    fontSize: 18,
-    height: 50,
-    paddingLeft: 10,
-    marginHorizontal: 10,
-    width: "45%"
-  },
+    borderBottomRightRadius: 8,
+    borderBottomLeftRadius: 8,
+  }
 });
 
 export default userInputStyle;

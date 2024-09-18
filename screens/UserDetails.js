@@ -19,6 +19,7 @@ export default function UserDetails({ route }) {
       <Image style={userDetailsStyle.image} source={{ uri: `https://avatar.iran.liara.run/public/${userId}` }}></Image>
       <Text style={userDetailsStyle.header}>{userId}</Text>
       <Text style={userDetailsStyle.header}>{userData.name}</Text>
+      <Text style={userDetailsStyle.header}>{userData.address.city}</Text>
     </SafeAreaView>
   );
 }

@@ -1,4 +1,4 @@
-import { SafeAreaView, TextInput, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, TextInput, Text, TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 import userInputStyle from "../styles/userInputStyle";
 import { setUsers } from "../services/users/actions";
@@ -19,6 +19,16 @@ export default function AddUser({ route, navigation }) {
 
     const handleOnChange = (text, input) => {
         setInputs(prevState => ({ ...prevState, [input]: text }));
+    };
+   
+    const handleOnChangeMulti = (text, input, parent) => {
+        setInputs(prevState => ({
+            ...prevState,
+            [parent]: {
+                ...prevState[parent],
+                [input]: text
+            }
+        }));
     };
 
     const submitHandler = async () => {
@@ -56,12 +66,42 @@ export default function AddUser({ route, navigation }) {
                 keyboardType="email-address"
                 selectionColor="black"
             />
-            <Text style={userInputStyle.label}>Street</Text>
+            <Text style={userInputStyle.label}>Address</Text>
+            <TextInput
+                style={userInputStyle.inputsTop}
+                onChangeText={text => handleOnChangeMulti(text, 'street', 'address')}  
+                placeholder="Enter street"
+                value={inputs.address?.street}
+                selectionColor="black"
+            />
+            <TextInput
+                style={userInputStyle.inputsMiddle}
+                onChangeText={text => handleOnChangeMulti(text, 'city', 'address')}  
+                placeholder="Enter city"
+                value={inputs.address?.city}
+                selectionColor="black"
+            />
+            <TextInput
+                style={userInputStyle.inputsBottom}
+                onChangeText={text => handleOnChangeMulti(text, 'zipcode', 'address')}  
+                placeholder="Enter zipcode"
+                value={inputs.address?.zipcode}
+                selectionColor="black"
+            />
+            <Text style={userInputStyle.label}>Phone</Text>
             <TextInput
                 style={userInputStyle.input}
-                onChangeText={text => handleOnChange(text, 'address.street')}
-                placeholder="Enter street"
-                value={inputs.address.street}
+                onChangeText={text => handleOnChange(text, 'phone')}  
+                placeholder="Enter phone"
+                value={inputs.phone}
+                selectionColor="black"
+            />
+            <Text style={userInputStyle.label}>Website</Text>
+            <TextInput
+                style={userInputStyle.input}
+                onChangeText={text => handleOnChange(text, 'website')}  
+                placeholder="Enter website"
+                value={inputs.website}
                 selectionColor="black"
             />
             <TouchableOpacity style={userInputStyle.button} onPress={submitHandler} ><Text style={userInputStyle.text}>Submit</Text></TouchableOpacity>
