@@ -35,10 +35,6 @@ const userDetailsStyle = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 16,
   },
-  header: {
-    fontSize: 35,
-    textAlign: "center"
-  }
 });
 
 export default userDetailsStyle;
