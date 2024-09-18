@@ -37,7 +37,7 @@ const userInputStyle = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 30,
     marginTop: 20,
-  }, 
+  },
   text: {
     color: "white",
     fontSize: 18,

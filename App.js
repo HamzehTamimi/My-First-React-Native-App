@@ -15,26 +15,26 @@ export default function App() {
 
   return (
     <>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Users', headerShadowVisible: false }}
-        />
-        <Stack.Screen
-          name="UserDetails"
-          component={UserDetails}
-          options={{ title: 'About User', headerShadowVisible: false }}
-        />
-        <Stack.Screen
-          name="AddUser"
-          component={AddUser}
-          options={{ title: 'New User', headerShadowVisible: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-    <Toast />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Users', headerShadowVisible: false }}
+          />
+          <Stack.Screen
+            name="UserDetails"
+            component={UserDetails}
+            options={{ title: 'About User', headerShadowVisible: false }}
+          />
+          <Stack.Screen
+            name="AddUser"
+            component={AddUser}
+            options={{ title: 'New User', headerShadowVisible: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast />
     </>
   );
 }

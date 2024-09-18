@@ -8,11 +8,11 @@ export default function AddUser({ route, navigation }) {
 
     const showToast = () => {
         Toast.show({
-          type: 'success',
-          text1: 'Success',
-          text2: 'New user has been added!'
+            type: 'success',
+            text1: 'Success',
+            text2: 'New user has been added!'
         });
-      }
+    }
 
     const [inputs, setInputs] = useState({});
     const { users } = route.params;
@@ -20,7 +20,7 @@ export default function AddUser({ route, navigation }) {
     const handleOnChange = (text, input) => {
         setInputs(prevState => ({ ...prevState, [input]: text }));
     };
-   
+
     const handleOnChangeMulti = (text, input, parent) => {
         setInputs(prevState => ({
             ...prevState,
@@ -69,21 +69,21 @@ export default function AddUser({ route, navigation }) {
             <Text style={userInputStyle.label}>Address</Text>
             <TextInput
                 style={userInputStyle.inputsTop}
-                onChangeText={text => handleOnChangeMulti(text, 'street', 'address')}  
+                onChangeText={text => handleOnChangeMulti(text, 'street', 'address')}
                 placeholder="Enter street"
                 value={inputs.address?.street}
                 selectionColor="black"
             />
             <TextInput
                 style={userInputStyle.inputsMiddle}
-                onChangeText={text => handleOnChangeMulti(text, 'city', 'address')}  
+                onChangeText={text => handleOnChangeMulti(text, 'city', 'address')}
                 placeholder="Enter city"
                 value={inputs.address?.city}
                 selectionColor="black"
             />
             <TextInput
                 style={userInputStyle.inputsBottom}
-                onChangeText={text => handleOnChangeMulti(text, 'zipcode', 'address')}  
+                onChangeText={text => handleOnChangeMulti(text, 'zipcode', 'address')}
                 placeholder="Enter zipcode"
                 value={inputs.address?.zipcode}
                 selectionColor="black"
@@ -91,7 +91,7 @@ export default function AddUser({ route, navigation }) {
             <Text style={userInputStyle.label}>Phone</Text>
             <TextInput
                 style={userInputStyle.input}
-                onChangeText={text => handleOnChange(text, 'phone')}  
+                onChangeText={text => handleOnChange(text, 'phone')}
                 placeholder="Enter phone"
                 value={inputs.phone}
                 selectionColor="black"
@@ -99,7 +99,7 @@ export default function AddUser({ route, navigation }) {
             <Text style={userInputStyle.label}>Website</Text>
             <TextInput
                 style={userInputStyle.input}
-                onChangeText={text => handleOnChange(text, 'website')}  
+                onChangeText={text => handleOnChange(text, 'website')}
                 placeholder="Enter website"
                 value={inputs.website}
                 selectionColor="black"
