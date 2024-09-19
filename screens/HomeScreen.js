@@ -25,19 +25,19 @@ export default function HomeScreen({ route, navigation }) {
   const renderItem = ({ item }) => {
     return (
       <View style={cardStyle.card}>
-        <Image style={{width: 100, height: 100}} source={{ uri: `https://avatar.iran.liara.run/public/${item.id}` }}></Image>  
-        <Text style={{ fontSize: 25, textAlign: "center", paddingBottom: 15 }}>{item.name}</Text>     
+        <Image style={{ width: 100, height: 100 }} source={{ uri: `https://avatar.iran.liara.run/public/${item.id}` }}></Image>
+        <Text style={{ fontSize: 25, textAlign: "center", paddingBottom: 15 }}>{item.name}</Text>
         <TouchableOpacity
           onPress={() => navigation.navigate(`UserDetails`, {
             userId: `${item.id}`,
             userData: item
           })}
           style={cardStyle.button}
-          >
+        >
           <Text style={cardStyle.buttonText}>
             More Details
           </Text>
-          </TouchableOpacity>
+        </TouchableOpacity>
       </View>
     );
   };
