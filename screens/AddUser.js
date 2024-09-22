@@ -3,8 +3,13 @@ import { useState } from "react";
 import userInputStyle from "../styles/userInputStyle";
 import { setUsers } from "../services/users/actions";
 import Toast from 'react-native-toast-message';
+import { useSelector, useDispatch } from "react-redux";
+import { addUser } from '../features/user/userSlice';
 
-export default function AddUser({ route, navigation }) {
+export default function AddUser({ navigation }) {
+    const [inputs, setInputs] = useState({});
+    const { users } = useSelector((state) => state.user)
+    const dispatch = useDispatch();
 
     const showToast = () => {
         Toast.show({
@@ -13,10 +18,7 @@ export default function AddUser({ route, navigation }) {
             text2: 'New user has been added!'
         });
     }
-
-    const [inputs, setInputs] = useState({});
-    const { users } = route.params;
-
+    
     const handleOnChange = (text, input) => {
         setInputs(prevState => ({ ...prevState, [input]: text }));
     };
@@ -33,9 +35,8 @@ export default function AddUser({ route, navigation }) {
 
     const submitHandler = async () => {
         const newUser = { id: users.length + 1, ...inputs };
-        const updatedUsers = [...users, newUser];
-        await setUsers(updatedUsers);
-        navigation.navigate('Home', { updatedUsers });
+        dispatch(addUser(newUser))
+        navigation.navigate('Home');
         showToast()
     };
 

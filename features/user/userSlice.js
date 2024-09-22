@@ -8,8 +8,13 @@ const initialState = {
     error: '',
 }
 
-export const fetchUsers = createAsyncThunk('users/fetchusers', async () => {
-    const response = await instance.get('./users');
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+    const response = await instance.get('/users');
+    return response.data;
+})
+
+export const addUser = createAsyncThunk('users/addUser', async (data) => {
+    const response = await instance.post('/users', data);
     return response.data;
 })
 
@@ -17,10 +22,14 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(fetchUsers.fulfilled, (state, action) => {
+        builder
+        .addCase(fetchUsers.fulfilled, (state, action) => {
             state.loading = false
             state.users = action.payload
             state.error = ''
+        })
+        .addCase(addUser.fulfilled, (state, action) => {
+            state.users.push(action.payload);
         })
     },
 })

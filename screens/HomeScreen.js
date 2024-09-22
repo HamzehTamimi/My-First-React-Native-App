@@ -10,7 +10,7 @@ import { fetchUsers } from '../features/user/userSlice';
 
 export default function HomeScreen({ route, navigation }) {
 
-  const user = useSelector((state) => state.user.users)
+  const {users} = useSelector((state) => state.user)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchUsers())
@@ -38,7 +38,7 @@ export default function HomeScreen({ route, navigation }) {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredData = user?.filter(item =>
+  const filteredData = users?.filter(item =>
     item?.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -56,7 +56,7 @@ export default function HomeScreen({ route, navigation }) {
         renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
       />
-      <AddButton onPress={() => navigation.navigate('AddUser', { users: user })} />
+      <AddButton onPress={() => navigation.navigate('AddUser')} />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
