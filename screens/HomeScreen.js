@@ -3,25 +3,19 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, Button, FlatList, SafeAreaView, TextInput, TouchableOpacity, Image } from 'react-native';
 import containerStyle from '../styles/containerStyle'
 import cardStyle from '../styles/cardStyle'
-import { getUsers } from '../services/users/actions';
 import searchBarStyle from '../styles/searchBarStyle';
 import AddButton from '../components/AddButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../features/user/userSlice';
 
 export default function HomeScreen({ route, navigation }) {
 
-  const [user, setUser] = useState([]);
-
+  const user = useSelector((state) => state.user.users)
+  const dispatch = useDispatch()
   useEffect(() => {
-    getUsers().then((users) => { setUser(users) })
-  }, []);
-
-  useEffect(() => {
-    if (route.params?.updatedUsers) {
-      setUser(route.params.updatedUsers);
-    }
-  }, [route.params?.updatedUsers]);
-
-
+    dispatch(fetchUsers())
+  }, [])
+  
   const renderItem = ({ item }) => {
     return (
       <View style={cardStyle.card}>

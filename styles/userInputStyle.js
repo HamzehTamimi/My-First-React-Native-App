@@ -2,14 +2,8 @@ import { StyleSheet } from "react-native";
 
 const userInputStyle = StyleSheet.create({
   input: {
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
-    borderTopWidth: 2,
-    borderBottomWidth: 4,
-    borderLeftColor: "lightgrey",
-    borderRightColor: "lightgrey",
-    borderTopColor: "lightgrey",
-    borderBottomColor: "black",
+    borderWidth: 2,
+    borderColor: "lightgrey",
     borderRadius: 8,
     fontSize: 18,
     height: 50,
@@ -72,14 +66,8 @@ const userInputStyle = StyleSheet.create({
     height: 50,
     marginHorizontal: 10,
     paddingLeft: 10,
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
-    borderTopWidth: 2,
-    borderBottomWidth: 4,
-    borderLeftColor: "lightgrey",
-    borderRightColor: "lightgrey",
-    borderTopColor: "lightgrey",
-    borderBottomColor: "black",
+    borderWidth: 2,
+    borderColor: "lightgrey",
     borderBottomRightRadius: 8,
     borderBottomLeftRadius: 8,
     backgroundColor: 'white'
