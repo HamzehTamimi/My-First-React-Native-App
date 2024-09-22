@@ -6,7 +6,6 @@ export const getUsers = async () => {
         return users.data;
     }
     catch (error) { console.log(error) }
-
 }
 
 export const getUserDetails = async (userId) => {
@@ -23,5 +22,4 @@ export const setUsers = async (data) => {
         return users.data;
     }
     catch (error) { console.log(error) }
-
 }
