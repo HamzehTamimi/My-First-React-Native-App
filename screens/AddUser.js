@@ -18,7 +18,15 @@ export default function AddUser({ navigation }) {
             text2: 'New user has been added!'
         });
     }
-    
+
+    const showErrorToast = () => {
+        Toast.show({
+            type: 'error',
+            text1: 'Error',
+            text2: 'Please add a name!'
+        });
+    }
+
     const handleOnChange = (text, input) => {
         setInputs(prevState => ({ ...prevState, [input]: text }));
     };
@@ -34,10 +42,14 @@ export default function AddUser({ navigation }) {
     };
 
     const submitHandler = async () => {
-        const newUser = { id: users.length + 1, ...inputs };
-        dispatch(addUser(newUser))
-        navigation.navigate('Home');
-        showToast()
+        if (inputs.name == null) {
+            showErrorToast()
+        }
+        else {
+            dispatch(addUser(inputs))
+            navigation.navigate('Home');
+            showToast()
+        }
     };
 
     return (

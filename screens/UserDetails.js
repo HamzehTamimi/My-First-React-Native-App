@@ -1,4 +1,4 @@
-import React, { useEffect  } from 'react';
+import React, { useEffect } from 'react';
 import { Text, SafeAreaView, Image, View, ScrollView } from 'react-native';
 import userDetailsStyle from '../styles/userDetailsStyle';
 import UserDetailsBox from '../components/UserDetailsBox'
@@ -11,7 +11,7 @@ export default function UserDetails({ route }) {
 
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.user);
+  const userData = useSelector((state) => state.user.users[userId - 1]);
 
   useEffect(() => {
     dispatch(fetchUserById(userId));
@@ -29,14 +29,14 @@ export default function UserDetails({ route }) {
     <SafeAreaView style={userDetailsStyle.container}>
       <ScrollView>
         <Image style={userDetailsStyle.image} source={{ uri: `https://avatar.iran.liara.run/public/${userId}` }}></Image>
-        <UserDetailsBox label="Name" value={user.name}/>
-        <UserDetailsBox label="Username" value={user.username}/>
-        <UserDetailsBox label="Email" value={user.email}/>
-        <UserDetailsBox label="Street" value={user.address?.street}/>
-        <UserDetailsBox label="City" value={user.address?.city}/>
-        <UserDetailsBox label="ZIP Code" value={user.address?.zipcode}/>
-        <UserDetailsBox label="Phone" value={user.phone}/>
-        <UserDetailsBox label="Website" value={user.website}/>        
+        <UserDetailsBox label="Name" value={userData?.name} />
+        <UserDetailsBox label="Username" value={userData?.username} />
+        <UserDetailsBox label="Email" value={userData?.email} />
+        <UserDetailsBox label="Street" value={userData?.address?.street} />
+        <UserDetailsBox label="City" value={userData?.address?.city} />
+        <UserDetailsBox label="ZIP Code" value={userData?.address?.zipcode} />
+        <UserDetailsBox label="Phone" value={userData?.phone} />
+        <UserDetailsBox label="Website" value={userData?.website} />
       </ScrollView>
     </SafeAreaView>
   );
