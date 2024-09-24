@@ -6,10 +6,16 @@ const initialState = {
     loading: false,
     users: [],
     error: '',
+    user: null,
 }
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     const response = await instance.get('/users');
+    return response.data;
+})
+
+export const fetchUserById = createAsyncThunk('users/fetchUserById', async (id) => {
+    const response = await instance.get(`/users/${id}`);
     return response.data;
 })
 
@@ -30,6 +36,11 @@ const userSlice = createSlice({
         })
         .addCase(addUser.fulfilled, (state, action) => {
             state.users.push(action.payload);
+        })
+        .addCase(fetchUserById.fulfilled, (state, action) => {
+            state.loading = false
+            state.user = action.payload
+            state.error = ''
         })
     },
 })
