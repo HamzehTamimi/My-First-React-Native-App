@@ -11,7 +11,7 @@ export default function AddUser({ navigation }) {
     const { users } = useSelector((state) => state.user)
     const dispatch = useDispatch();
 
-    const showToast = () => {
+    const showSuccessToast = () => {
         Toast.show({
             type: 'success',
             text1: 'Success',
@@ -48,7 +48,7 @@ export default function AddUser({ navigation }) {
         else {
             dispatch(addUser(inputs))
             navigation.navigate('Home');
-            showToast()
+            showSuccessToast()
         }
     };
 
