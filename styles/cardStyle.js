@@ -20,6 +20,7 @@ const cardStyle = StyleSheet.create({
     backgroundColor: "black",
     width: 120,
     height: 40,
+    marginHorizontal: 5,
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
@@ -28,6 +29,9 @@ const cardStyle = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 14,
+  },
+  buttonContainer: {
+    flexDirection:"row",
   }
 });
 

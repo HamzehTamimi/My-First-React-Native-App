@@ -24,6 +24,12 @@ export const addUser = createAsyncThunk('users/addUser', async (data) => {
     return response.data;
 })
 
+export const deleteUser = createAsyncThunk('users/deleteUser', async (id) => {
+    instance.delete(`/users/${id}`);
+    return { id }; 
+})
+
+
 const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -43,6 +49,9 @@ const userSlice = createSlice({
             state.loading = false
             state.user = action.payload
             state.error = ''
+        })
+        .addCase(deleteUser.fulfilled, (state, action) => {
+            state.users = state.users.filter(user => user.id !== action.payload.id);
         })
     },
 })
